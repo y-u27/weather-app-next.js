@@ -1,7 +1,10 @@
 import { Box } from "@chakra-ui/react";
+import Weather from "./components/Weather";
 
 export default function Home() {
   return (
-    <Box>天気予報アプリ</Box>
+    <Box>
+      <Weather/>
+    </Box>
   );
 }
