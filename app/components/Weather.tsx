@@ -1,10 +1,11 @@
-'use client'
+"use client";
 
 import { Box, Button, Input } from "@chakra-ui/react";
 import { useState } from "react";
 
 const Weather = () => {
   const [city, setCity] = useState("");
+  const [weather, setWeather] = useState(null);
 
   async function fetchAllWeather() {
     const res = await fetch(
@@ -15,7 +16,6 @@ const Weather = () => {
     );
     const data = await res.json();
     console.log(data);
-    
   }
 
   return (
