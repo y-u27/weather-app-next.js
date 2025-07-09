@@ -13,10 +13,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model City {
+  id Int @id @default(autoincrement())
+  name String @unique
+  weathers Weather[]
+}
+
 model Weather {
   id Int @id @default(autoincrement())
   city String
   weather String
   temperature Float
   observed_at DateTime
+  cityId Int
+  citys City @relation(fields: [cityId], references: [id])
 }
+
