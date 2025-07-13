@@ -1,4 +1,5 @@
 import prisma from "@/app/lib/prismaClient";
+import { data } from "framer-motion/client";
 import { NextResponse } from "next/server";
 
 // 天気情報取得（openweathermap api）
@@ -15,6 +16,20 @@ export async function GET(request: Request) {
   );
 
   const savedWeather = await response.json();
+
+  // レスポンスの中身を確認
+  console.log("OpenWeather API Response:", savedWeather);
+
+  if (!savedWeather.weather || !savedWeather.weather[0]) {
+    return NextResponse.json(
+      {
+        success: false,
+        message: "天気データの取得に失敗",
+        data: savedWeather,
+      },
+      { status: 500 }
+    );
+  }
 
   const weather = savedWeather.weather[0].main;
   const temperature = Math.round(savedWeather.main.temp);
