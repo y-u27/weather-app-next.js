@@ -16,6 +16,7 @@ datasource db {
 model City {
   id Int @id @default(autoincrement())
   name String @unique
+  queryName String
   weathers Weather[]
 }
 
