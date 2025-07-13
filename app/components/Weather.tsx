@@ -7,6 +7,7 @@ import { WeatherType } from "../types/weatherType";
 type City = {
   id: number;
   name: string;
+  queryName: string;
 };
 
 const Weather = () => {
@@ -44,11 +45,13 @@ const Weather = () => {
           placeholder="都市を選択"
           onChange={(e) => setCity(e.target.value)}
         >
-          {cities.map((city: { id: number; name: string }) => (
-            <option key={city.id} value={city.name}>
-              {city.name}
-            </option>
-          ))}
+          {cities.map(
+            (city: { id: number; name: string; queryName: string }) => (
+              <option key={city.id} value={city.queryName}>
+                {city.name}
+              </option>
+            )
+          )}
         </Select>
         <Button onClick={fetchAllWeather}>検索</Button>
       </Box>
