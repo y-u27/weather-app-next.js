@@ -12,7 +12,7 @@ export async function GET(request: Request) {
   const response = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
       city
-    )},JP&appid=${apiKey}&units=metric&lang=ja`
+    )}&appid=${apiKey}&units=metric&lang=ja`
   );
 
   const savedWeather = await response.json();
