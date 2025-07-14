@@ -1,5 +1,4 @@
 import prisma from "@/app/lib/prismaClient";
-import { data } from "framer-motion/client";
 import { NextResponse } from "next/server";
 
 // 天気情報取得（openweathermap api）
