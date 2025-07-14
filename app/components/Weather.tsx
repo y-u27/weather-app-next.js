@@ -39,35 +39,56 @@ const Weather = () => {
   }, []);
 
   return (
-    <Box>
-      <Box boxSize="20%" p={5} display="flex">
-        <Select
-          placeholder="都市を選択"
-          onChange={(e) => setCity(e.target.value)}
+    <>
+      <Box position="relative">
+        <Box
+          boxSize="20%"
+          pt="10%"
+          display="flex"
+          position="absolute"
+          left="40%"
         >
-          {cities.map(
-            (city: { id: number; name: string; queryName: string }) => (
-              <option key={city.id} value={city.queryName}>
-                {city.name}
-              </option>
-            )
-          )}
-        </Select>
-        <Button onClick={fetchAllWeather}>検索</Button>
-      </Box>
+          <Select
+            placeholder="都市を選択"
+            onChange={(e) => setCity(e.target.value)}
+          >
+            {cities.map(
+              (city: { id: number; name: string; queryName: string }) => (
+                <option key={city.id} value={city.queryName}>
+                  {city.name}
+                </option>
+              )
+            )}
+          </Select>
+          <Box px="3%">
+            <Button onClick={fetchAllWeather}>検索</Button>
+          </Box>
+        </Box>
 
-      {/* 天気結果表示 */}
-      {weather && (
-        <Card>
-          <CardBody>
-            <Text>都市名：{city}</Text>
-            <Text>天気：{weather.weather}</Text>
-            <Text>気温：{weather.temperature}</Text>
-            <Text>日時：{new Date(weather.observed_at).toLocaleString()}</Text>
-          </CardBody>
-        </Card>
-      )}
-    </Box>
+        <Box
+          boxSize="20%"
+          pt="13%"
+          display="flex"
+          position="absolute"
+          top="20%"
+          left="40%"
+        >
+          {/* 天気結果表示 */}
+          {weather && (
+            <Card>
+              <CardBody>
+                <Text>都市名：{city}</Text>
+                <Text>天気：{weather.weather}</Text>
+                <Text>気温：{weather.temperature}</Text>
+                <Text>
+                  日時：{new Date(weather.observed_at).toLocaleString()}
+                </Text>
+              </CardBody>
+            </Card>
+          )}
+        </Box>
+      </Box>
+    </>
   );
 };
 
