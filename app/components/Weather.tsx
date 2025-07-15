@@ -42,11 +42,12 @@ const Weather = () => {
     <>
       <Box position="relative">
         <Box
-          boxSize="20%"
+          width="20%"
           pt="10%"
           display="flex"
           position="absolute"
           left="40%"
+          zIndex="10"
         >
           <Select
             placeholder="都市を選択"
@@ -61,21 +62,19 @@ const Weather = () => {
             )}
           </Select>
           <Box px="3%">
-            <Button onClick={fetchAllWeather}>検索</Button>
+            <Button
+              _hover={{ bg: "blue.500", color: "white" }}
+              onClick={fetchAllWeather}
+            >
+              検索
+            </Button>
           </Box>
         </Box>
 
-        <Box
-          boxSize="20%"
-          pt="13%"
-          display="flex"
-          position="absolute"
-          top="20%"
-          left="40%"
-        >
+        <Box width="20%" pt="14%" position="absolute" top="30%" left="40%">
           {/* 天気結果表示 */}
           {weather && (
-            <Card>
+            <Card border="1px" borderColor="teal.300">
               <CardBody>
                 <Text>都市名：{city}</Text>
                 <Text>天気：{weather.weather}</Text>
