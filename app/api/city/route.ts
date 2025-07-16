@@ -2,7 +2,7 @@ import prisma from "../../lib/prismaClient";
 import { NextResponse } from "next/server";
 
 // 地域名取得
-export async function GET(request: Request) {
+export async function GET() {
   const cities = await prisma.city.findMany({
     select: {
       id: true,
