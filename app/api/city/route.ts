@@ -1,4 +1,4 @@
-import prisma from "@/src/app/lib/prismaClient";
+import prisma from "../../lib/prismaClient";
 import { NextResponse } from "next/server";
 
 // 地域名取得
