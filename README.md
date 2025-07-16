@@ -1,37 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# weather-app-next.js
 
-## Getting Started
+## 【アプリ概要】<br/>
+「weather-app-next.js」は、特定の地域の天気情報を検索し、天気を知ることができるアプリです。
 
-First, run the development server:
+## アプリURL<br/>
+https://weather-app-next-js-zeta.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 機能一覧<br/>
+＜フロントエンド＞<br/>
+- 地域を選択できるプルダウンメニュー<br/>
+- [検索]ボタンで選択した地域の天気情報を表示<br/>
+※天気情報：地域名・天気・気温・日時<br/>
+
+＜バックエンド＞<br/>
+- OpenWeatherMap APIを使って天気情報を取得
+- APIのレスポンスから必要な情報を抽出し、SupabaseのWeatherテーブルに保存
+- すでに当日・同一都市の情報がDBに存在する場合はAPIを呼ばずにDBから取得（API回数制限対策）
+- 地域名はSupabaseのCityテーブルから取得し、プルダウンに表示
+
+## アプリ説明<br/>
+```
+1.  地域名をプルダウンから選択
+
+2.  選択後、[検索]ボタンクリック
+
+3.  選択した地域の天気情報が表示される
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## アプリ操作デモ<br/>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 使用技術<br/>
+| カテゴリ       | 使用技術            |
+|---------------|----------------------|
+| **フロントエンド** | React, Next.js, TypeScript, Chakra UI |
+| **外部API** | OpenWeatherMap API |
+| **バックエンド**   | Prisma      |
+| **データベース**   | Supabase             |
+| **デプロイ**     | Vercel               |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## データベース設計(テーブル定義)<br/>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Cityテーブル
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| カラム名  | 型     | 説明         |
+|-----------|--------|--------------|
+| id        | int4   | 主キー       |
+| name      | text   | ブラウザ表示用の地域名   |
+| queryName     | text   | API用の地域名 |
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Weatherテーブル
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# weather-app-next.js
+| カラム名  | 型     | 説明         |
+|-----------|--------|--------------|
+| id        | int4   | 主キー       |
+| city      | text   | 地域名   |
+| weather     | text   | 天気 |
+| temperature     | float8   | 気温 |
+| observed_at  | timestamp   | 日時   |
+| cityId   | int4   | Cityの外部キー   |
+| citys     | City   | Cityテーブルとのリレーション用 |
