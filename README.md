@@ -3,10 +3,10 @@
 ## 【アプリ概要】<br/>
 「weather-app-next.js」は、特定の地域の天気情報を検索し、天気を知ることができるアプリです。
 
-## アプリURL<br/>
+## 【アプリURL】<br/>
 https://weather-app-next-js-zeta.vercel.app/
 
-## 機能一覧<br/>
+## 【機能一覧】<br/>
 ＜フロントエンド＞<br/>
 - 地域を選択できるプルダウンメニュー<br/>
 - [検索]ボタンで選択した地域の天気情報を表示<br/>
@@ -18,7 +18,7 @@ https://weather-app-next-js-zeta.vercel.app/
 - すでに当日・同一都市の情報がDBに存在する場合はAPIを呼ばずにDBから取得（API回数制限対策）
 - 地域名はSupabaseのCityテーブルから取得し、プルダウンに表示
 
-## アプリ説明<br/>
+## 【アプリ説明】<br/>
 ```
 1.  地域名をプルダウンから選択
 
@@ -27,11 +27,9 @@ https://weather-app-next-js-zeta.vercel.app/
 3.  選択した地域の天気情報が表示される
 ```
 
-## アプリ操作デモ<br/>
-
 ---
 
-## 使用技術<br/>
+## 【使用技術】<br/>
 | カテゴリ       | 使用技術            |
 |---------------|----------------------|
 | **フロントエンド** | React, Next.js, TypeScript, Chakra UI |
@@ -42,7 +40,7 @@ https://weather-app-next-js-zeta.vercel.app/
 
 ---
 
-## データベース設計(テーブル定義)<br/>
+## 【データベース設計(テーブル定義)】<br/>
 
 ### Cityテーブル
 
