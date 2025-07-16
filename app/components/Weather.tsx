@@ -17,7 +17,7 @@ const Weather = () => {
 
   async function fetchAllWeather() {
     const resWeather = await fetch(
-      `http://localhost:3000/api/weather?city=${encodeURIComponent(city)}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/weather?city=${encodeURIComponent(city)}`,
       {
         cache: "no-store",
       }
@@ -28,7 +28,7 @@ const Weather = () => {
 
   useEffect(() => {
     const fetchSelectCity = async () => {
-      const resCity = await fetch(`http://localhost:3000/api/city`, {
+      const resCity = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/city`, {
         cache: "no-store",
       });
       const dataCity = await resCity.json();
