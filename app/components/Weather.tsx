@@ -50,7 +50,7 @@ const Weather = () => {
           zIndex="10"
         >
           <Select
-            placeholder="都市を選択"
+            placeholder="都市を選択してください"
             onChange={(e) => setCity(e.target.value)}
           >
             {cities.map(
