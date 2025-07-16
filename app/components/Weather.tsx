@@ -1,6 +1,14 @@
 "use client";
 
-import { Box, Button, Card, CardBody, Select, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Card,
+  CardBody,
+  Select,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { WeatherType } from "../types/weatherType";
 
@@ -17,7 +25,9 @@ const Weather = () => {
 
   async function fetchAllWeather() {
     const resWeather = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/weather?city=${encodeURIComponent(city)}`,
+      `${
+        process.env.NEXT_PUBLIC_BASE_URL
+      }/api/weather?city=${encodeURIComponent(city)}`,
       {
         cache: "no-store",
       }
@@ -28,9 +38,12 @@ const Weather = () => {
 
   useEffect(() => {
     const fetchSelectCity = async () => {
-      const resCity = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/city`, {
-        cache: "no-store",
-      });
+      const resCity = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/city`,
+        {
+          cache: "no-store",
+        }
+      );
       const dataCity = await resCity.json();
       setCities(dataCity);
       console.log(dataCity);
@@ -40,41 +53,40 @@ const Weather = () => {
 
   return (
     <>
-      <Box position="relative">
-        <Box
-          width="20%"
-          pt="10%"
-          display="flex"
-          position="absolute"
-          left="40%"
-          zIndex="10"
-        >
-          <Select
-            placeholder="都市を選択してください"
-            onChange={(e) => setCity(e.target.value)}
+      <Box px={4} py={10}>
+        <Stack spacing={2} align="center">
+          <Stack
+            direction={{ base: "column", md: "row" }}
+            spacing={3}
+            align="center"
+            w="100%"
+            maxW="md"
           >
-            {cities.map(
-              (city: { id: number; name: string; queryName: string }) => (
-                <option key={city.id} value={city.queryName}>
-                  {city.name}
-                </option>
-              )
-            )}
-          </Select>
-          <Box px="3%">
+            <Select
+              placeholder="都市を選択してください"
+              onChange={(e) => setCity(e.target.value)}
+              w="full"
+            >
+              {cities.map(
+                (city: { id: number; name: string; queryName: string }) => (
+                  <option key={city.id} value={city.queryName}>
+                    {city.name}
+                  </option>
+                )
+              )}
+            </Select>
             <Button
               _hover={{ bg: "blue.500", color: "white" }}
               onClick={fetchAllWeather}
+              w={{ base: "full", md: "auto" }}
             >
               検索
             </Button>
-          </Box>
-        </Box>
+          </Stack>
 
-        <Box width="20%" pt="14%" position="absolute" top="30%" left="40%">
           {/* 天気結果表示 */}
           {weather && (
-            <Card border="1px" borderColor="teal.300">
+            <Card w="100%" maxW="md" border="1px" borderColor="teal.300">
               <CardBody>
                 <Text>都市名：{city}</Text>
                 <Text>天気：{weather.weather}</Text>
@@ -85,7 +97,7 @@ const Weather = () => {
               </CardBody>
             </Card>
           )}
-        </Box>
+        </Stack>
       </Box>
     </>
   );
