@@ -50,9 +50,17 @@ https://weather-app-next-js-zeta.vercel.app/
 | name      | text   | ブラウザ表示用の地域名   |
 | queryName     | text   | API用の地域名 |
 
+<details>
+
+<summary>Cityテーブル</summary>
+
+### ./public/スクリーンショット 2025-07-18 0.08.10.png
+
+</details>
+
 ---
 
-### Weatherテーブル
+### Weatherテーブル<br/>
 
 | カラム名  | 型     | 説明         |
 |-----------|--------|--------------|
@@ -63,7 +71,28 @@ https://weather-app-next-js-zeta.vercel.app/
 | cityId   | int4   | Cityの外部キー   |
 | citys     | City   | Cityテーブルとのリレーション用 |
 
-### テーブルのリレーション
+---
+
+### テーブルのリレーション<br/>
 
 - City 1 : 1 Weather
 （1都市に1つの天気情報が紐付けされる）
+
+---
+
+<details>
+
+<summary>データベース内容</summary>
+
+### You can add a header
+
+You can add text within a collapsed section.
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details>
+
