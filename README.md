@@ -54,7 +54,7 @@ https://weather-app-next-js-zeta.vercel.app/
 
 <summary>Cityテーブル</summary>
 
-### ./public/スクリーンショット 2025-07-18 0.08.10.png
+### /Users/yukie/Devlop/nextjs/weather-app/public/スクリーンショット 2025-07-18 0.08.10.png
 
 </details>
 
