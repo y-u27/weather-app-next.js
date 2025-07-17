@@ -54,9 +54,11 @@ https://weather-app-next-js-zeta.vercel.app/
 
 <summary>Cityテーブル</summary>
 
-### ![image](./public/image/スクリーンショット%2025-07-18%0.08.10.png)
+### <img width="914" height="652" alt="スクリーンショット 2025-07-18 0 08 10" src="https://github.com/user-attachments/assets/17f3ef86-8441-4c8f-8b84-b351ebe03a91" />
+
 
 </details>
+
 
 ---
 
