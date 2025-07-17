@@ -8,6 +8,7 @@ import {
   Select,
   Stack,
   Text,
+  useRadio,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { WeatherType } from "../types/weatherType";
@@ -19,7 +20,10 @@ type City = {
 };
 
 const Weather = () => {
+  // プルダウンメニューで選択する都市名のuseState
   const [city, setCity] = useState("");
+  // 天気情報表示用の都市名のuseState
+  const [selectedCity, setSelectedCity] = useState("");
   const [weather, setWeather] = useState<WeatherType | null>(null);
   const [cities, setCities] = useState<City[]>([]);
 
@@ -34,6 +38,7 @@ const Weather = () => {
     );
     const dataWeather = await resWeather.json();
     setWeather(dataWeather.data);
+    setSelectedCity(city);
   }
 
   useEffect(() => {
@@ -55,7 +60,9 @@ const Weather = () => {
     <>
       <Stack py={6} align="center">
         <Box>
-          <Text color="blue.400" fontSize="4xl">天気アプリ</Text>
+          <Text color="blue.400" fontSize="4xl">
+            天気アプリ
+          </Text>
         </Box>
       </Stack>
 
@@ -94,7 +101,7 @@ const Weather = () => {
           {weather && (
             <Card w="100%" maxW="md" border="1px" borderColor="teal.300">
               <CardBody>
-                <Text>都市名：{city}</Text>
+                <Text>都市名：{selectedCity}</Text>
                 <Text>天気：{weather.weather}</Text>
                 <Text>気温：{weather.temperature}</Text>
                 <Text>
