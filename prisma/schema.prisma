@@ -22,7 +22,6 @@ model City {
 
 model Weather {
   id Int @id @default(autoincrement())
-  city String
   weather String
   temperature Float
   observed_at DateTime
