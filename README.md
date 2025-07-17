@@ -57,9 +57,13 @@ https://weather-app-next-js-zeta.vercel.app/
 | カラム名  | 型     | 説明         |
 |-----------|--------|--------------|
 | id        | int4   | 主キー       |
-| city      | text   | 地域名   |
 | weather     | text   | 天気 |
 | temperature     | float8   | 気温 |
 | observed_at  | timestamp   | 日時   |
 | cityId   | int4   | Cityの外部キー   |
 | citys     | City   | Cityテーブルとのリレーション用 |
+
+### テーブルのリレーション
+
+- City 1 : 1 Weather
+（1都市に1つの天気情報が紐付けされる）
