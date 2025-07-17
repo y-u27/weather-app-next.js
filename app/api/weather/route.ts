@@ -1,6 +1,14 @@
 import prisma from "../../lib/prismaClient";
 import { NextResponse } from "next/server";
 
+// 天気を英語→日本語へ変換
+const weatherMap: { [key: string]: string } = {
+  Clear: "晴れ",
+  Clouds: "くもり",
+  Rain: "雨",
+  Snow: "雪",
+};
+
 // 天気情報取得（openweathermap api）
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -63,7 +71,8 @@ export async function GET(request: Request) {
     );
   }
 
-  const weather = savedWeather.weather[0].main;
+  const englishWeather = savedWeather.weather[0].main;
+  const weather = weatherMap[englishWeather] || englishWeather;
   const temperature = Math.round(savedWeather.main.temp);
   const observed_at = new Date();
 
