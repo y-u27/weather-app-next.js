@@ -79,7 +79,6 @@ export async function GET(request: Request) {
   // データベース保存
   const createWeather = await prisma.weather.create({
     data: {
-      city,
       weather,
       temperature,
       observed_at,
