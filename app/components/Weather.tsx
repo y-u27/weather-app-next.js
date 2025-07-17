@@ -53,6 +53,12 @@ const Weather = () => {
 
   return (
     <>
+      <Stack py={6} align="center">
+        <Box>
+          <Text color="blue.400" fontSize="lg">天気アプリ</Text>
+        </Box>
+      </Stack>
+
       <Box px={4} py={10}>
         <Stack spacing={2} align="center">
           <Stack
