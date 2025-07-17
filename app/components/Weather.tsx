@@ -75,7 +75,7 @@ const Weather = () => {
             maxW="md"
           >
             <Select
-              placeholder="都市を選択してください"
+              placeholder="都道府県を選択してください"
               onChange={(e) => setCity(e.target.value)}
               w="full"
             >
