@@ -8,7 +8,6 @@ import {
   Select,
   Stack,
   Text,
-  useRadio,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { WeatherType } from "../types/weatherType";
