@@ -56,9 +56,7 @@ https://weather-app-next-js-zeta.vercel.app/
 
 ### <img width="914" height="652" alt="スクリーンショット 2025-07-18 0 08 10" src="https://github.com/user-attachments/assets/17f3ef86-8441-4c8f-8b84-b351ebe03a91" />
 
-
 </details>
-
 
 ---
 
@@ -73,28 +71,20 @@ https://weather-app-next-js-zeta.vercel.app/
 | cityId   | int4   | Cityの外部キー   |
 | citys     | City   | Cityテーブルとのリレーション用 |
 
+<details>
+
+<summary>Weatherテーブル</summary>
+
+### <img width="1252" height="619" alt="スクリーンショット 2025-07-18 0 09 13" src="https://github.com/user-attachments/assets/1108fec3-2880-4575-b784-691f199248dd" />
+
+### <img width="1246" height="654" alt="スクリーンショット 2025-07-18 0 09 46" src="https://github.com/user-attachments/assets/00edb0e6-7512-4700-aa8f-cb5b07bebc00" />
+
+</details>
+
 ---
 
 ### テーブルのリレーション<br/>
 
 - City 1 : 1 Weather
 （1都市に1つの天気情報が紐付けされる）
-
----
-
-<details>
-
-<summary>データベース内容</summary>
-
-### You can add a header
-
-You can add text within a collapsed section.
-
-You can add an image or a code block, too.
-
-```ruby
-   puts "Hello World"
-```
-
-</details>
 
