@@ -55,7 +55,7 @@ const Weather = () => {
     <>
       <Stack py={6} align="center">
         <Box>
-          <Text color="blue.400" fontSize="100px">天気アプリ</Text>
+          <Text color="blue.400" fontSize="60%">天気アプリ</Text>
         </Box>
       </Stack>
 
